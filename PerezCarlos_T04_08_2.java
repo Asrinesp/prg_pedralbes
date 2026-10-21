@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class PerezCarlos_T04_7_5 {
+public class PerezCarlos_T04_08_2 {
     public static void main(String[] args) {
         // Creamos variable para el Scanner
         Scanner  input = new Scanner(System.in);
