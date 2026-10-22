@@ -9,8 +9,10 @@ public class PerezCarlos_T04_08 {
         int res = 1;
         int i = 0;
 
+        // Pedimos al usuario que ingrese un numero y lo guardamos en una variable
         System.out.println("Ingresa un numero:");
         numUser = input.nextInt();
+        // Bucle que suma la multiplicacion del numero hasta que llegue el indice (i) al mismo
         while(i < numUser) {
             i++;
             res = res * i;

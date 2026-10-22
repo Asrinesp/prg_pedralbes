@@ -9,10 +9,12 @@ public class PerezCarlos_T04_09 {
         int res = 0;
         int i = 1;
 
+        // Pedimos al usuario que ingrese un numero y lo guardamos en una variable
         System.out.println("Ingresa un numero:");
         numUser = input.nextInt();
         while(i < numUser) {
             res = res + i;
+            // Le sumamos a i un +2 para calcular solo los impares
             i = i + 2;
         }
 
