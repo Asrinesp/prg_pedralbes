@@ -26,7 +26,8 @@ public class PerezCarlos_aprende_a_restar_3 {
         seguir = true;
         aciertos = 0;
         i = 0;
-        do {
+        // Bucle que continua hasta que la variable "seguir" cambie a false
+        while(seguir) {
             // Bucle para que el primer numero siempre sea mayor al segundo
             do {
                 num1 = rand.nextInt(10) + 1;
@@ -72,8 +73,7 @@ public class PerezCarlos_aprende_a_restar_3 {
                 System.out.println("Restas terminadas");
                 seguir = false;
             }
-        // Bucle que continua hasta que la variable "seguir" cambie a false
-        } while(seguir);
+        }
 
         // Final del contador
         fin = System.currentTimeMillis();
