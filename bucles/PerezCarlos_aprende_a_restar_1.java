@@ -1,4 +1,3 @@
-package bucles;
 import java.util.Scanner;
 import java.util.Random;
 
