@@ -50,14 +50,15 @@ public class PerezCarlos_T05_13 {
                         for (int i = 0; i < LONG; i++) {
                             do {
                                 numUsr = input.nextInt();
-                                // Ifs para comprobar que las edades no sean negativas ni mayores a 150 y mostramos mensaje de error
-                                if (numUsr < 0) {
-                                    System.out.println("No puedes ingresar edades negativas");
-                                }
+                                // if para comprobar que no sea una edad mayor a 150
                                 if (numUsr > 150) {
                                     System.out.println("No puedes ingresar edades mayores a 150");
                                 }
                             } while (numUsr < 0 || numUsr > 150);
+                            if (numUsr < 0) {
+                                LONG = i;
+                                break;
+                            }
                             edades[i] = numUsr;
                         }
                         // Boolean que permite entrar a las otras opciones, ya que sin las edades ingresadas no se pueden hacer los calculos
