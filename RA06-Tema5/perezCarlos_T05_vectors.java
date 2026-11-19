@@ -1,21 +1,93 @@
+import java.util.Random;
+
 public class PerezCarlos_T05_vectors {
     public static void main(String[] args) {
 
+        final int LONG = 100;
 
-        // tercera bombolla
-        while (!(ordenado)) {
-            ordenado = true;
-            // Bucle for para recorrer el array y comparar los elementos adyacentes, si el elemento actual es mayor que el siguiente, los intercambiamos y cambiamos el boolean ordenado a false
-            for (int i = 0; i < longitud - count; i++) {
-                if (edades[i] > edades[i + 1]) {
-                    aux = edades[i];
-                    edades[i] = edades[i + 1];
-                    edades[i + 1] = aux;
-                    ordenado = false;
+        int[] array = new int[LONG];
+
+        int count, aux, suma, turno;
+
+        long inicio, finalT;
+
+        boolean ordenado;
+
+        inicio = System.currentTimeMillis();
+        suma = 0;
+        // bombolla version 0
+        for (int i = 0; i < 100; i++) {
+            count = 0;
+            for (int j = 0; j < LONG; j++) {
+                array[j] = new Random().nextInt(100) + 1;
+            }
+            for (int j = 0; j < LONG-1; j++) {
+                for (int k = 0; k < LONG-1; k++) {
+                    count++;
+                    if (array[k] > array[k+1]) {
+                        aux = array[k];
+                        array[k] = array[k+1];
+                        array[k+1] = aux;
+                    }
                 }
             }
-            // Incrementamos count para que el bucle for recorra menos elementos en cada iteracion, ya que los ultimos elementos ya estan ordenados
-            count++;
+            suma += count;
         }
+        finalT = System.currentTimeMillis();
+        System.out.printf("Tiempo de ejecucion del metodo bombolla version 0: %d milisegundos\n", (finalT - inicio));
+        System.out.println("La media de iteraciones del metodo bombolla version 0 es: " + (suma/100));
+
+        // bombolla version 1
+        inicio = System.currentTimeMillis();
+        suma = 0;
+        for (int i = 0; i < 100; i++) {
+            count = 0;
+            for (int j = 0; j < LONG; j++) {
+                array[j] = new Random().nextInt(100) + 1;
+            }
+            for (int j = 1; j < LONG; j++) {
+                for (int k = 0; k < LONG-j; k++) {
+                    count++;
+                    if (array[k] > array[k+1]) {
+                        aux = array[k];
+                        array[k] = array[k+1];
+                        array[k+1] = aux;
+                    }
+                }
+            }
+            suma += count;
+        }
+        finalT = System.currentTimeMillis();
+        System.out.printf("Tiempo de ejecucion del metodo bombolla version 1: %d milisegundos\n", (finalT - inicio));
+        System.out.println("La media de iteraciones del metodo bombolla version 1 es: " + (suma/100));
+
+        // bombolla version 2
+        inicio = System.currentTimeMillis();
+        suma = 0;
+        for (int i = 0; i < 100; i++) {
+            count = 0;
+            for (int j = 0; j < LONG; j++) {
+                array[j] = new Random().nextInt(100) + 1;
+            }
+            ordenado = false;
+            turno = 1;
+            while (!(ordenado)) {
+                ordenado = true;
+                for (int j = 0; j < LONG - turno; j++) {
+                    count++;
+                    if (array[j] > array[j + 1]) {
+                        aux = array[j];
+                        array[j] = array[j + 1];
+                        array[j + 1] = aux;
+                        ordenado = false;
+                    }
+                }
+                turno++; 
+            }
+            suma += count;
+        }
+        finalT = System.currentTimeMillis();
+        System.out.printf("Tiempo de ejecucion del metodo bombolla version 2: %d milisegundos\n", (finalT - inicio));
+        System.out.println("La media de iteraciones del metodo bombolla version 2 es: " + (suma/100));
     }
 }
